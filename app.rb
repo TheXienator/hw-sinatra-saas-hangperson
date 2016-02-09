@@ -65,46 +65,19 @@ class HangpersonApp < Sinatra::Base
   end
   
   get '/win' do
-    erb :win # You may change/remove this line
+    if @game.check_win_or_lose == :win
+      erb :win
+    else
+      redirect '/show'
+    end
   end
   
   get '/lose' do
-    erb :lose # You may change/remove this line
+    if @game.check_win_or_lose == :lose
+      erb :lose
+    else
+      redirect '/show'
+    end
   end
 
-  post '/new' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
-
-  post '/create' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
-
-  post '/win' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
-
-  post '/lose' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
 end
