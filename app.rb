@@ -24,24 +24,6 @@ class HangpersonApp < Sinatra::Base
   get '/new' do
     erb :new
   end
-  
-  post '/new' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
-
-  post '/create' do
-    # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || HangpersonGame.get_random_word
-    # NOTE: don't change previous line - it's needed by autograder!
-
-    @game = HangpersonGame.new(word)
-    redirect '/show'
-  end
 
   post '/show' do
     # NOTE: don't change next line - it's needed by autograder!
@@ -89,5 +71,40 @@ class HangpersonApp < Sinatra::Base
   get '/lose' do
     erb :lose # You may change/remove this line
   end
-  
+
+  post '/new' do
+    # NOTE: don't change next line - it's needed by autograder!
+    word = params[:word] || HangpersonGame.get_random_word
+    # NOTE: don't change previous line - it's needed by autograder!
+
+    @game = HangpersonGame.new(word)
+    redirect '/show'
+  end
+
+  post '/create' do
+    # NOTE: don't change next line - it's needed by autograder!
+    word = params[:word] || HangpersonGame.get_random_word
+    # NOTE: don't change previous line - it's needed by autograder!
+
+    @game = HangpersonGame.new(word)
+    redirect '/show'
+  end
+
+  post '/win' do
+    # NOTE: don't change next line - it's needed by autograder!
+    word = params[:word] || HangpersonGame.get_random_word
+    # NOTE: don't change previous line - it's needed by autograder!
+
+    @game = HangpersonGame.new(word)
+    redirect '/show'
+  end
+
+  post '/lose' do
+    # NOTE: don't change next line - it's needed by autograder!
+    word = params[:word] || HangpersonGame.get_random_word
+    # NOTE: don't change previous line - it's needed by autograder!
+
+    @game = HangpersonGame.new(word)
+    redirect '/show'
+  end
 end
