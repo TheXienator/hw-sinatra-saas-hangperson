@@ -26,7 +26,7 @@ class HangpersonGame
   end
 
   def guess(letter)
-    if letter !~ /^[A-Za-z]$/
+    if letter !~ /^[A-Za-z]$/ 
       raise ArgumentError.new("Not a valid letter")
     end
 
@@ -46,7 +46,6 @@ class HangpersonGame
           end
         end
       end
-
     else
       @wrong_guesses += letter
       if @wrong_guesses.length >= 7
